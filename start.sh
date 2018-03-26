@@ -30,4 +30,4 @@ docker run \
     -v /lib/modules:/lib/modules:ro \
     -d --privileged \
     --restart=always \
-    mobilejazz/docker-ipsec-vpn-server
+    raunsbaekdk/docker-ipsec-vpn-server
