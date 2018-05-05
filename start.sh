@@ -32,7 +32,6 @@ docker run \
   --name ipsec-vpn-server \
   -p 500:500/udp \
   -p 4500:4500/udp \
-  -v /lib/modules:/lib/modules:ro \
   -v "$PWD/etc/ppp/chap-secrets:/etc/ppp/chap-secrets" \
   -v "$PWD/etc/ipsec.d/passwd:/etc/ipsec.d/passwd" \
   -v "$PWD/etc/ipsec.secrets:/etc/ipsec.secrets" \
