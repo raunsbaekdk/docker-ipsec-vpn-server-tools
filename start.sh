@@ -18,6 +18,11 @@ touch etc/ipsec.secrets
 # Declare arguments variable
 EXTRA_ARGS=
 
+# Check if post-up file exists
+if [ -f etc/post-up.sh ]; then
+  EXTRA_ARGS="-v $PWD/etc/post-up.sh:/post-up.sh"
+fi
+
 # Check if pre-up file exists
 if [ -f etc/pre-up.sh ]; then
   EXTRA_ARGS="-v $PWD/etc/pre-up.sh:/pre-up.sh"
