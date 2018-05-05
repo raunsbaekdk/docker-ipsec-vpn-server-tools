@@ -18,7 +18,10 @@ if [ -f etc/pre-up.sh ]; then
     EXTRA_ARGS="-v $PWD/etc/pre-up.sh:/pre-up.sh"
 fi
 
+docker network create --attachable --opt 'com.docker.network.bridge.name=bridge-coi' --opt 'com.docker.network.bridge.enable_ip_masquerade=false' bridge-coi
+
 docker run \
+    --network bridge-coi \
     --name ipsec-vpn-server \
     -p 500:500/udp \
     -p 4500:4500/udp \
