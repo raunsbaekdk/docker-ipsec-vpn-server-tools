@@ -40,6 +40,8 @@ docker run \
   -v "$PWD/etc/ppp/chap-secrets:/etc/ppp/chap-secrets" \
   -v "$PWD/etc/ipsec.d/passwd:/etc/ipsec.d/passwd" \
   -v "$PWD/etc/ipsec.secrets:/etc/ipsec.secrets" \
+  -v "$PWD/etc/resolv.conf:/etc/resolv.conf" \
+  -v "$PWD/etc/hosts.blocked:/opt/src/hosts.blocked" \
   $EXTRA_ARGS \
   -v /lib/modules:/lib/modules:ro \
   -d --privileged \
