@@ -9,11 +9,8 @@ else
 fi
 
 # Create folders and touch files
-mkdir -p etc/ipsec.d
-mkdir -p etc/ppp
-touch etc/ipsec.d/passwd
-touch etc/ppp/chap-secrets
 touch etc/ipsec.secrets
+touch etc/ipsec.users
 
 # Declare arguments variable
 EXTRA_ARGS=
@@ -37,11 +34,8 @@ docker run \
   --name ipsec-vpn-server \
   -p 500:500/udp \
   -p 4500:4500/udp \
-  -v "$PWD/etc/ppp/chap-secrets:/etc/ppp/chap-secrets" \
-  -v "$PWD/etc/ipsec.d/passwd:/etc/ipsec.d/passwd" \
   -v "$PWD/etc/ipsec.secrets:/etc/ipsec.secrets" \
-  -v "$PWD/etc/resolv.conf:/etc/resolv.conf" \
-  -v "$PWD/etc/hosts.blocked:/opt/src/hosts.blocked" \
+  -v "$PWD/etc/ipsec.users:/etc/ipsec.users" \
   $EXTRA_ARGS \
   -v /lib/modules:/lib/modules:ro \
   -d --privileged \
